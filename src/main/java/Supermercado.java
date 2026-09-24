@@ -4,7 +4,7 @@ import java.util.List;
 public class Supermercado {
     private String nombre;
     private String direccion;
-    private int telefono;
+    private String telefono;
 
     //creacion de listas
 private List<Producto> listaProductos;
@@ -12,7 +12,7 @@ private List<Compra> listaCompras;
 private List<Cliente> listaClientes;
 
 
-    public Supermercado(String nombre, String direccion, int telefono) {
+    public Supermercado(String nombre, String direccion, String telefono) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -37,10 +37,10 @@ private List<Cliente> listaClientes;
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
