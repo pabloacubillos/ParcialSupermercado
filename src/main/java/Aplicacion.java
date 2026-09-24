@@ -202,6 +202,21 @@ public class Aplicacion {
                     Compra compra = new Compra(codigoCompra,fechaCompra,metodoPago,clienteCompra);
                     marketPlus.registrarCompra(compra);
                     break;
+
+                case 6:
+
+                    System.out.println("A continuacion, ingresa la informacion correspondiente a la fecha del reporte:");
+
+                    System.out.println("-Año: ");
+                    int anio = sc.nextInt();
+
+                    System.out.println("-Mes: ");
+                    int mes = sc.nextInt();
+
+                    System.out.println("-Dia: ");
+                    int dia = sc.nextInt();
+
+
                 case 7:
                     System.out.println("---Mostrar productos disponibles---");
 
