@@ -241,6 +241,19 @@ public class Aplicacion {
                     Cliente clienteCompra = marketPlus.encontrarCliente(documentoCliente);
 
                     Compra compra = new Compra(codigoCompra, fechaCompra, metodoPago, clienteCompra);
+
+                    System.out.println("Ingresa la cantidad de productos que comprara: ");
+
+                    int cantidadProducto = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.println("Agrega el codigo del producto que comprara: ");
+                    codigoProducto = sc.nextLine();
+
+
+                    Producto productoCompra = null;
+
+                    boolean seAgregoProducto = compra.agregarProducto(productoCompra,cantidadProducto);
                     marketPlus.registrarCompra(compra);
                     break;
 
