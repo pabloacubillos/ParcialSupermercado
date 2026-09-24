@@ -216,6 +216,9 @@ public class Aplicacion {
                     System.out.println("-Dia: ");
                     int dia = sc.nextInt();
 
+                    LocalDate fecha = LocalDate.of(anio,mes,dia);
+
+                    marketPlus.reportarVenta(fecha);
 
                 case 7:
                     System.out.println("---Mostrar productos disponibles---");
