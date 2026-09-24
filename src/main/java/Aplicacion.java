@@ -27,6 +27,7 @@ do{
     System.out.println("--------------------");
 
     System.out.println("6. Reporte de Venta");
+    System.out.println("7. Mostrar productos disponibles");
 
     System.out.println("--------------------");
     System.out.println("0. Salir");
@@ -35,8 +36,6 @@ do{
     System.out.print("Seleccione la opción: ");
     opcion = sc.nextInt();
     sc.nextLine();
-
-
 
     switch (opcion){
         case 1:
@@ -84,15 +83,99 @@ do{
             marketPlus.mostrarClientes();
             break;
 
+        case 4:
+            // Registrar producto
+            System.out.println("--- Registrar Producto ---");
+
+            System.out.println("Nombre del producto: ");
+            String nombreProducto = sc.nextLine();
+
+            int opcionCategoria;
+            Categoria categoria = null;
+
+            do {
+                System.out.println(
+                        "Seleccione la categoría:\n" +
+                                "1. ASEO\n" +
+                                "2. BEBIDAS\n" +
+                                "3. ALIMENTOS\n" +
+                                "4. CUIDADO_PERSONAL"
+                );
+
+                opcionCategoria = sc.nextInt();
+                sc.nextLine();
+
+                switch (opcionCategoria) {
+                    case 1:
+                        categoria = Categoria.ASEO;
+                        break;
+
+                    case 2:
+                        categoria = Categoria.BEBIDAS;
+                        break;
+
+                    case 3:
+                        categoria = Categoria.ALIMENTOS;
+                        break;
+
+                    case 4:
+                        categoria = Categoria.CUIDADO_PERSONAL;
+                        break;
+
+                    default:
+                        System.out.println("Opción inválida.");
+                }
+
+            } while (opcionCategoria < 1 || opcionCategoria > 4);
+
+            System.out.println("Categoría seleccionada: " + categoria);
+
+            break;
 
         case 5:
             //Registrar Compra
             System.out.println("Ingresa el codigo de la compra:");
-            String codigo = sc.nextLine();
+            String codigoCompra = sc.nextLine();
 
+            LocalDate fechaCompra = LocalDate.now();
+            System.out.println();
 
+            int opcionMetodo;
+            MetodoPago metodoPago = null;
+            do {
+                System.out.println("Seleccione el metodo:\n" +
+                                "1. TARJETA\n" +
+                                "2. TRANSFERENCIA\n" +
+                                "3. EFECTIVO");
 
-            MetodoPago metodoPago;
+                opcionMetodo = sc.nextInt();
+                sc.nextLine();
+
+                switch (opcionMetodo) {
+                    case 1:
+                        metodoPago = MetodoPago.TARJETA;
+                        break;
+
+                    case 2:
+                        metodoPago = MetodoPago.TRANSFERENCIA;
+                        break;
+
+                    case 3:
+                        metodoPago = MetodoPago.EFECTIVO;
+                        break;
+
+                    default:
+                        System.out.println("Opción inválida.");
+                }
+
+            } while (opcionMetodo < 1 || opcionMetodo > 3);
+
+            System.out.println("Metodo de pago seleccionado: " + metodoPago);
+
+            Compra compra = new Compra(codigoCompra,fechaCompra,metodoPago);
+            marketPlus.registrarCompra(compra);
+            break;
+
 
         case 0:
             System.out.println("Programa finalizado.....");
@@ -101,14 +184,7 @@ do{
         default:
             System.out.println("Opción no valida.....");
 
-
     }
-
-
-
-
-
-
 
 } while (opcion != 0);
 
