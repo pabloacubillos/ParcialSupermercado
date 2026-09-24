@@ -70,8 +70,8 @@ do{
             System.out.println("Ingresa el codigo de la compra:");
             String codigo = sc.nextLine();
 
-
-
+            LocalDate fecha = LocalDate.now();
+            System.out.println();
             MetodoPago metodoPago;
 
 
