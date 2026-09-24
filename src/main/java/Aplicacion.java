@@ -71,7 +71,7 @@ do{
             System.out.println("-----Modificar cliente-----");
 
             System.out.println("Documento cliente: ");
-            String documentoModificar = sc.nextLine();
+            String documentoModificado = sc.nextLine();
 
             System.out.println("Nuevo nombre cliente: ");
             String nuevoNombre = sc.nextLine();
@@ -82,16 +82,10 @@ do{
             System.out.println("Nuevo correo: ");
             String nuevoCorreo = sc.nextLine();
 
-            Cliente clienteModificado = new Cliente(nuevoNombre,documentoModificar, nuevoTelefono, nuevoCorreo);
-
+            Cliente clienteModificado = new Cliente(nuevoNombre,documentoModificado, nuevoTelefono, nuevoCorreo);
+            marketPlus.modificarCliente(documentoModificado,clienteModificado);
 
             break;
-
-
-
-
-
-
 
 
         case 4:
