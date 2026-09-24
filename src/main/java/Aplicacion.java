@@ -218,7 +218,7 @@ public class Aplicacion {
 
                     LocalDate fecha = LocalDate.of(anio,mes,dia);
 
-                    marketPlus.reportarVenta(fecha);
+                    System.out.println(marketPlus.reportarVenta(fecha));
 
                 case 7:
                     System.out.println("---Mostrar productos disponibles---");
