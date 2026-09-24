@@ -100,7 +100,7 @@ private List<Cliente> listaClientes;
 
     public boolean verificarCompra (String codigo){
         boolean existe = false;
-        if (listaClientes.contains(codigo)){
+        if (listaCompras.contains(codigo)){
             existe = true;
         }
         return existe;
@@ -122,7 +122,7 @@ private List<Cliente> listaClientes;
     public boolean modificarCliente(String documento, Cliente clienteModificado){
         boolean estaModificado = false;
         for(Cliente cliente: listaClientes){
-            if(cliente.getDocumento()==documento){
+            if(cliente.getDocumento().equals(documento)){
                 cliente.setNombre(clienteModificado.getNombre());
                 cliente.setTelefono(clienteModificado.getTelefono());
                 cliente.setCorreo(clienteModificado.getCorreo());

@@ -27,6 +27,7 @@ do{
     System.out.println("--------------------");
 
     System.out.println("6. Reporte de Venta");
+    System.out.println("7. Mostrar productos disponibles");
 
     System.out.println("--------------------");
     System.out.println("0. Salir");
@@ -169,13 +170,61 @@ do{
             System.out.println("Producto registrado correctamente.");
 
             break;
+
+        case 5:
+            //Registrar Compra
+            System.out.println("Ingresa el codigo de la compra:");
+            String codigoCompra = sc.nextLine();
+
+            LocalDate fechaCompra = LocalDate.now();
+            System.out.println();
+
+            int opcionMetodo;
+            MetodoPago metodoPago = null;
+            do {
+                System.out.println("Seleccione el metodo:\n" +
+                                "1. TARJETA\n" +
+                                "2. TRANSFERENCIA\n" +
+                                "3. EFECTIVO");
+
+                opcionMetodo = sc.nextInt();
+                sc.nextLine();
+
+                switch (opcionMetodo) {
+                    case 1:
+                        metodoPago = MetodoPago.TARJETA;
+                        break;
+
+                    case 2:
+                        metodoPago = MetodoPago.TRANSFERENCIA;
+                        break;
+
+                    case 3:
+                        metodoPago = MetodoPago.EFECTIVO;
+                        break;
+
+                    default:
+                        System.out.println("Opción inválida.");
+                }
 }
 
+            } while (opcionMetodo < 1 || opcionMetodo > 3);
+
+            System.out.println("Metodo de pago seleccionado: " + metodoPago);
+
+            Compra compra = new Compra(codigoCompra,fechaCompra,metodoPago);
+            marketPlus.registrarCompra(compra);
+            break;
 
 
+        case 0:
+            System.out.println("Programa finalizado.....");
+            break;
 
+        default:
+            System.out.println("Opción no valida.....");
 
-
+    }
 
 } while (opcion != 0);
 

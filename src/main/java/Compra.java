@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -5,12 +6,12 @@ import java.util.List;
 public class Compra {
 
     private String codigo;
-    private Date fecha;
+    private LocalDate fecha;
     private MetodoPago metodoPago;
     private List<Producto> listaProductos;
 
 
-    public Compra(String codigo, Date fecha, MetodoPago metodoPago) {
+    public Compra(String codigo, LocalDate fecha, MetodoPago metodoPago) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.metodoPago = metodoPago;
@@ -34,10 +35,10 @@ public class Compra {
         this.codigo = codigo;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
