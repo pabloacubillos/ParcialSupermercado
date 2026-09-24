@@ -6,16 +6,16 @@ public class Compra {
 
     private String codigo;
     private Date fecha;
-    private String telefano;
+    private String telefono;
     private String correo;
     private MetodoPago metodoPago;
     private List<Producto> listaProductos;
 
 
-    public Compra(String codigo, Date fecha, String telefano, String correo, MetodoPago metodoPago, List<Producto> listaProductos) {
+    public Compra(String codigo, Date fecha, String telefono, String correo, MetodoPago metodoPago) {
         this.codigo = codigo;
         this.fecha = fecha;
-        this.telefano = telefano;
+        this.telefono = telefono;
         this.correo = correo;
         this.metodoPago = metodoPago;
         listaProductos = new ArrayList<>();
@@ -26,7 +26,7 @@ public class Compra {
         return "Compra{" +
                 "codigo='" + codigo + '\'' +
                 ", fecha=" + fecha +
-                ", telefano='" + telefano + '\'' +
+                ", telefano='" + telefono + '\'' +
                 ", correo='" + correo + '\'' +
                 ", metodoPago=" + metodoPago +
                 ", listaProductos=" + listaProductos +
@@ -47,11 +47,11 @@ public class Compra {
         this.fecha = fecha;
     }
 
-    public String getTelefano() {
-        return telefano;
+    public String getTelefono() {
+        return telefono;
     }
-    public void setTelefano(String telefano) {
-        this.telefano = telefano;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getCorreo() {
