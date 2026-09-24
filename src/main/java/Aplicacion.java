@@ -38,6 +38,7 @@ do{
     switch (opcion){
         case 1:
             //Registrar cliente
+            System.out.println("-----Registrar cliente-----");
             System.out.println("Ingresa el nombre del cliente:");
             String nombre = sc.nextLine();
 
@@ -54,6 +55,22 @@ do{
             Cliente cliente = new Cliente(nombre,documento,telefono,correo);
 
         case 2:
+            System.out.println("-----Modificar cliente-----");
+
+            System.out.println("Documento cliente: ");
+            String documentoModificar = sc.nextLine();
+
+            System.out.println("Nuevo nombre cliente: ");
+            String nuevoNombre = sc.nextLine();
+
+            System.out.println("Nuevo teléfono: ");
+            String nuevoTelefono = sc.nextLine();
+
+            System.out.println("Nuevo correo: ");
+            String nuevoCorreo = sc.nextLine();
+
+            Cliente clienteModificado = new Cliente(nuevoNombre,documentoModificar, nuevoTelefono, nuevoCorreo);
+
 
             break;
 
