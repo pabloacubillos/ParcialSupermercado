@@ -6,7 +6,7 @@ import java.util.logging.SocketHandler;
 
 public class Aplicacion {
     public static void main (String[] args) {
-
+        Supermercado marketPlus = new Supermercado("Market Plus","Carrera 15 calle 13", "39028362");
         // Menu interactivo
         Scanner sc = new Scanner(System.in);
 
@@ -52,7 +52,6 @@ do{
             String correo = sc.nextLine();
 
             Cliente cliente = new Cliente(nombre,documento,telefono,correo);
-
 
         case 2:
 
