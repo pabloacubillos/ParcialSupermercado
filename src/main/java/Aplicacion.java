@@ -55,8 +55,6 @@ do{
             Cliente cliente = new Cliente(nombreCliente,documentoCliente,telefonoCliente,correoCliente);
             break;
 
-            Cliente cliente = new Cliente(nombre, documento, telefono, correo);
-            break;
         case 2:
 
             System.out.println("-----Modificar cliente-----");
@@ -101,7 +99,7 @@ do{
             System.out.println("Opción no valida.....");
 
 
-        case 3:
+
 
         case 4:
             // Registrar producto
