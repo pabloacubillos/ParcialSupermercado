@@ -122,7 +122,7 @@ private List<Cliente> listaClientes;
     public boolean modificarCliente(String documento, Cliente clienteModificado){
         boolean estaModificado = false;
         for(Cliente cliente: listaClientes){
-            if(cliente.getDocumento()==documento){
+            if(cliente.getDocumento().equals(documento)){
                 cliente.setNombre(clienteModificado.getNombre());
                 cliente.setTelefono(clienteModificado.getTelefono());
                 cliente.setCorreo(clienteModificado.getCorreo());
