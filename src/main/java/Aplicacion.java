@@ -197,7 +197,12 @@ do{
 
             System.out.println("Metodo de pago seleccionado: " + metodoPago);
 
-            Compra compra = new Compra(codigoCompra,fechaCompra,metodoPago);
+            System.out.println("Ingrese el numero de documento de identidad del cliente:");
+            documentoCliente = sc.nextLine();
+
+            Cliente clienteCompra = marketPlus.encontrarCliente(documentoCliente);
+
+            Compra compra = new Compra(codigoCompra,fechaCompra,metodoPago,clienteCompra);
             marketPlus.registrarCompra(compra);
             break;
         case 7:
