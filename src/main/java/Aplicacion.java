@@ -29,6 +29,8 @@ do{
     System.out.println("6. Reporte de Venta");
     System.out.println("7. Mostrar productos disponibles");
 
+
+
     System.out.println("--------------------");
     System.out.println("0. Salir");
 
@@ -84,6 +86,28 @@ do{
 
 
             break;
+
+        case 3:
+            //Mostrar clientes
+            marketPlus.mostrarClientes();
+            break;
+
+
+        case 5:
+            //Registrar Compra
+            System.out.println("Ingresa el codigo de la compra:");
+            String codigo = sc.nextLine();
+
+
+
+            MetodoPago metodoPago;
+
+        case 0:
+            System.out.println("Programa finalizado.....");
+            break;
+
+        default:
+            System.out.println("Opción no valida.....");
 
 
 
@@ -193,6 +217,7 @@ do{
                         System.out.println("Opción inválida.");
                 }
 
+
             } while (opcionMetodo < 1 || opcionMetodo > 3);
 
             System.out.println("Metodo de pago seleccionado: " + metodoPago);
@@ -200,6 +225,12 @@ do{
             Compra compra = new Compra(codigoCompra,fechaCompra,metodoPago);
             marketPlus.registrarCompra(compra);
             break;
+        case 7:
+            System.out.println("---Mostrar productos disponibles---");
+
+            marketPlus.mostrarProductos();
+            break;
+
 
 
         case 0:
