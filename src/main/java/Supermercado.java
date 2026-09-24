@@ -100,7 +100,7 @@ private List<Cliente> listaClientes;
 
     public boolean verificarCompra (String codigo){
         boolean existe = false;
-        if (listaClientes.contains(codigo)){
+        if (listaCompras.contains(codigo)){
             existe = true;
         }
         return existe;
