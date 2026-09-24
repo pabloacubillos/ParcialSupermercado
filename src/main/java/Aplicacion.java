@@ -59,7 +59,15 @@ do{
             break;
 
         case 2:
+            //Mostrar Cliente
 
+
+            marketPlus.mostrarClientes();
+
+            break;
+
+        case 3:
+            //Modificar cliente
             System.out.println("-----Modificar cliente-----");
 
             System.out.println("Documento cliente: ");

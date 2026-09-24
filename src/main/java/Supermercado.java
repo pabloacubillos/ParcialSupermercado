@@ -84,7 +84,7 @@ private List<Cliente> listaClientes;
 
     public void mostrarClientes (){
         for (Cliente cliente : listaClientes){
-            System.out.println(cliente.getNombre());
+            System.out.println(cliente.toString());
         }
     }
 
