@@ -1,10 +1,10 @@
 public class Cliente {
     private String nombre;
     private String documento;
-    private int telefono;
+    private String telefono;
     private String correo;
 
-    public Cliente(String nombre, String documento, int telefono, String correo) {
+    public Cliente(String nombre, String documento, String telefono, String correo) {
         this.nombre = nombre;
         this.documento = documento;
         this.telefono = telefono;
@@ -17,8 +17,8 @@ public class Cliente {
     public String getDocumento() {return documento;}
     public void setDocumento(String documento) {this.documento = documento;}
 
-    public int getTelefono() {return telefono;}
-    public void setTelefono(int telefono) {this.telefono = telefono;}
+    public String getTelefono() {return telefono;}
+    public void setTelefono(String telefono) {this.telefono = telefono;}
 
     public String getCorreo() {return correo;}
     public void setCorreo(String correo) {this.correo = correo;}

@@ -82,6 +82,30 @@ private List<Cliente> listaClientes;
         return existe;
     }
 
+    public void mostrarClientes (){
+        for (Cliente cliente : listaClientes){
+            System.out.println(cliente.getNombre());
+        }
+    }
+
+    // Registrar compra
+    public boolean registrarCompra (Compra compra){
+        boolean agregado = verificarCompra(compra.getCodigo());
+        if (!agregado){
+            listaCompras.add(compra);
+            agregado = true;
+        }
+        return agregado;
+    }
+
+    public boolean verificarCompra (String codigo){
+        boolean existe = false;
+        if (listaClientes.contains(codigo)){
+            existe = true;
+        }
+        return existe;
+    }
+
     @Override
     public String toString() {
         return "Supermercado{" +
@@ -91,6 +115,22 @@ private List<Cliente> listaClientes;
                 + listaProductos+", lista de compras=" + listaCompras +
                 ", lista de clientes=" + listaClientes+
                 '}';
+    }
+
+    //Método modificar cliente
+
+    public boolean modificarCliente(String documento, Cliente clienteModificado){
+        boolean estaModificado = false;
+        for(Cliente cliente: listaClientes){
+            if(cliente.getDocumento()==documento){
+                cliente.setNombre(clienteModificado.getNombre());
+                cliente.setTelefono(clienteModificado.getTelefono());
+                cliente.setCorreo(clienteModificado.getCorreo());
+                estaModificado=true;
+                break;
+            }
+        }
+        return estaModificado;
     }
 
 }
