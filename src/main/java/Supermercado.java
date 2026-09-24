@@ -26,7 +26,6 @@ private List<Cliente> listaClientes;
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -34,7 +33,6 @@ private List<Cliente> listaClientes;
     public String getDireccion() {
         return direccion;
     }
-
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
@@ -42,7 +40,6 @@ private List<Cliente> listaClientes;
     public int getTelefono() {
         return telefono;
     }
-
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
@@ -50,7 +47,6 @@ private List<Cliente> listaClientes;
     public List<Producto> getListaProductos() {
         return listaProductos;
     }
-
     public void setListaProductos(List<Producto> listaProductos) {
         this.listaProductos = listaProductos;
     }
@@ -58,7 +54,6 @@ private List<Cliente> listaClientes;
     public List<Compra> getListaCompras() {
         return listaCompras;
     }
-
     public void setListaCompras(List<Compra> listaCompras) {
         this.listaCompras = listaCompras;
     }
@@ -66,9 +61,25 @@ private List<Cliente> listaClientes;
     public List<Cliente> getListaClientes() {
         return listaClientes;
     }
-
     public void setListaClientes(List<Cliente> listaClientes) {
         this.listaClientes = listaClientes;
+    }
+
+    public boolean registrarCliente (Cliente cliente){
+        boolean agregado = verificarCliente(cliente.getDocumento());
+        if (!agregado){
+            listaClientes.add(cliente);
+            agregado = true;
+        }
+        return agregado;
+    }
+
+    public boolean verificarCliente (String documento){
+        boolean existe = false;
+        if (listaClientes.contains(documento)){
+            existe = true;
+        }
+        return existe;
     }
 
     @Override
@@ -81,4 +92,5 @@ private List<Cliente> listaClientes;
                 ", lista de clientes=" + listaClientes+
                 '}';
     }
+
 }

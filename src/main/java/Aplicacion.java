@@ -21,6 +21,25 @@ do{
 
     switch (opcion){
         case 1:
+            //Registrar cliente
+            System.out.println("Ingresa el nombre del cliente:");
+            String nombre = sc.nextLine();
+
+            System.out.println("Ingresa el documento de identidad del cliente:");
+            String documento = sc.nextLine();
+
+            System.out.println("Ingresa el telefono del cliente: ");
+            int telefono = sc.nextInt();
+
+            sc.nextLine();
+            System.out.println("Ingresa el correo electronico del cliente");
+            String correo = sc.nextLine();
+
+            Cliente cliente = new Cliente(nombre,documento,telefono,correo);
+
+
+        case 2:
+
     }
 
 
