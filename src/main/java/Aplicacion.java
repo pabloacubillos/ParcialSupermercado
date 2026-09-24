@@ -168,9 +168,9 @@ public class Aplicacion {
                     MetodoPago metodoPago = null;
                     do {
                         System.out.println("Seleccione el metodo:\n" +
-                                        "1. TARJETA\n" +
-                                        "2. TRANSFERENCIA\n" +
-                                        "3. EFECTIVO");
+                                "1. TARJETA\n" +
+                                "2. TRANSFERENCIA\n" +
+                                "3. EFECTIVO");
 
                         opcionMetodo = sc.nextInt();
                         sc.nextLine();
@@ -207,33 +207,26 @@ public class Aplicacion {
                     break;
                 case 7:
                     System.out.println("---Mostrar productos disponibles---");
-            Compra compra = new Compra(codigoCompra, fechaCompra, metodoPago);
-            marketPlus.registrarCompra(compra);
-            break;
-        case 7:
-            System.out.println("---Mostrar productos disponibles---");
-
-            marketPlus.mostrarProductos();
-            break;
-        case 8:
-            // modificar producto
-            System.out.println("Ingresa el codigo del producto que quieres modificar: ");
-            String codigoActualizar = sc.nextLine();
-
-            System.out.println("Nuevo nombre: ");
-            String nombreActualizar = sc.nextLine();
-
-            System.out.println("Nuevo precio: ");
-            double precioActualizar = sc.nextDouble();
-
-            System.out.println("Nuevo cantidad disponible: ");
-            int cantidadActualizar = sc.nextInt();
-
-            Producto productoModificado = new Producto( codigoActualizar, nombreActualizar,
-                    precioActualiza, cantidadActualizar);
 
                     marketPlus.mostrarProductos();
                     break;
+                case 8:
+                    // modificar producto
+                    System.out.println("Ingresa el codigo del producto que quieres modificar: ");
+                    String codigoActualizado = sc.nextLine();
+
+                    System.out.println("Nuevo nombre: ");
+                    String nombreActualizado = sc.nextLine();
+
+                    System.out.println("Nuevo precio: ");
+                    double precioActualizado = sc.nextDouble();
+
+                    System.out.println("Nuevo cantidad disponible: ");
+                    int cantidadActualizado = sc.nextInt();
+
+                    //Nota: falta categoria
+                    Producto productoModificado = new Producto(codigoActualizado, nombreActualizado,
+                            precioActualizado, cantidadActualizado, null);
 
 
 
@@ -245,12 +238,6 @@ public class Aplicacion {
                     System.out.println("Opción no valida.....");
             }
         } while (opcion != 0);
-
-
-
-
-
-
         sc.close();
     }
 
