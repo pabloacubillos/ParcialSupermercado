@@ -207,10 +207,6 @@ private List<Cliente> listaClientes;
         }
 
         return null;
-    public void mostrarProductos() {
-        for (Producto producto : listaProductos) {
-            System.out.println(producto);
-        }
     }
 
 }
