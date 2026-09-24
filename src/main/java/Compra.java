@@ -1,0 +1,16 @@
+import java.util.Date;
+
+public class Compra {
+
+    private String codigo;
+    private Date fecha;
+    private String telefano;
+    private String correo;
+
+    public Compra(String codigo, Date fecha, String telefano, String correo) {
+        this.codigo = codigo;
+        this.fecha = fecha;
+        this.telefano = telefano;
+        this.correo = correo;
+    }
+}
