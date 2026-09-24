@@ -9,7 +9,7 @@ public class Compra {
     private MetodoPago metodoPago;
     private List<Producto> listaProductos;
     private Cliente cliente;
-    private double valorTotal;          // ← NUEVO
+    private double valorTotal;
 
     public Compra(String codigo, LocalDate fecha, MetodoPago metodoPago, Cliente cliente) {
         this.codigo = codigo;
@@ -17,7 +17,7 @@ public class Compra {
         this.metodoPago = metodoPago;
         this.listaProductos = new ArrayList<>();
         this.cliente = cliente;
-        this.valorTotal = 0.0;          // ← NUEVO
+        this.valorTotal = 0.0;
     }
 
 
@@ -66,7 +66,7 @@ public class Compra {
     public Cliente getCliente() { return cliente; }
     public void setCliente(Cliente cliente) { this.cliente = cliente; }
 
-    public double getValorTotal() { return valorTotal; }          // ← NUEVO
+    public double getValorTotal() { return valorTotal; }
     public void setValorTotal(double valorTotal) { this.valorTotal = valorTotal; }
 
     @Override
