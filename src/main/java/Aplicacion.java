@@ -28,6 +28,7 @@ do{
 
     System.out.println("6. Reporte de Venta");
     System.out.println("7. Mostrar productos disponibles");
+    System.out.println("8. Modificar productos disponibles");
 
 
 
@@ -230,6 +231,8 @@ do{
 
             marketPlus.mostrarProductos();
             break;
+        case 8:
+            // modificar producto
 
 
 
