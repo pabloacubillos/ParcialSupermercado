@@ -1,5 +1,7 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Supermercado {
     private String nombre;
@@ -163,7 +165,24 @@ private List<Cliente> listaClientes;
     }
 
     public void  mostrarProductos (){
-        for (Producto producto : listaProductos){}
+        for (Producto producto : listaProductos){
+            System.out.println(producto);
+        }
+    }
+
+    //conocer el valor total vendido en una fecha determinada
+    public String reportarVenta(List<Compra> listaCompras, LocalDate fecha){
+
+
+        int valorTotal = 0;
+
+        for (Compra compra : listaCompras){
+            if (compra.getFecha() == fecha){
+                valorTotal++;
+            }
+        }
+
+        return null;
     }
 
 }
