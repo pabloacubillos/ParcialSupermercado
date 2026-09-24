@@ -27,6 +27,7 @@ do{
     System.out.println("--------------------");
 
     System.out.println("6. Reporte de Venta");
+    System.out.println("7. Mostrar productos disponibles");
 
     System.out.println("--------------------");
     System.out.println("0. Salir");
@@ -182,17 +183,7 @@ do{
         default:
             System.out.println("Opción no valida.....");
 
-
-
-
-
     }
-
-
-
-
-
-
 
 } while (opcion != 0);
 
