@@ -88,6 +88,17 @@ private List<Cliente> listaClientes;
         }
     }
 
+    public Cliente encontrarCliente (String documento){
+        Cliente clienteEncontrado = null;
+        for (Cliente cliente : listaClientes){
+            if (cliente.getDocumento()==documento){
+                clienteEncontrado = cliente;
+                break;
+            }
+        }
+        return clienteEncontrado;
+    }
+
     // Registrar compra
     public boolean registrarCompra (Compra compra){
         boolean agregado = verificarCompra(compra.getCodigo());
