@@ -81,14 +81,51 @@ do{
             String nuevoCorreo = sc.nextLine();
 
             Cliente clienteModificado = new Cliente(nuevoNombre,documentoModificar, nuevoTelefono, nuevoCorreo);
+
+
             break;
+
+        case 3:
+            //Mostrar clientes
+            marketPlus.mostrarClientes();
+            break;
+
+
+        case 5:
+            //Registrar Compra
+            System.out.println("Ingresa el codigo de la compra:");
+            String codigo = sc.nextLine();
+
+
+
+            MetodoPago metodoPago;
+
+        case 0:
+            System.out.println("Programa finalizado.....");
+            break;
+
+        default:
+            System.out.println("Opción no valida.....");
+
+
+
+
 
         case 4:
             // Registrar producto
             System.out.println("--- Registrar Producto ---");
 
+            System.out.println("Código del producto: ");
+            String codigoProducto = sc.nextLine();
+
             System.out.println("Nombre del producto: ");
             String nombreProducto = sc.nextLine();
+
+            System.out.println("Precio del producto: ");
+            double precioProducto = sc.nextDouble();
+
+            System.out.println("Cantidad disponible: ");
+            int cantidadProducto = sc.nextInt();
 
             int opcionCategoria;
             Categoria categoria = null;
@@ -128,7 +165,17 @@ do{
 
             } while (opcionCategoria < 1 || opcionCategoria > 4);
 
-            System.out.println("Categoría seleccionada: " + categoria);
+            Producto producto = new Producto(
+                    codigoProducto,
+                    nombreProducto,
+                    precioProducto,
+                    cantidadProducto,
+                    categoria
+            );
+
+            marketPlus.registrarProducto(producto);
+
+            System.out.println("Producto registrado correctamente.");
 
             break;
 

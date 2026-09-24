@@ -132,5 +132,23 @@ private List<Cliente> listaClientes;
         }
         return estaModificado;
     }
+    public boolean registrarProducto(Producto producto) {
+
+        for (Producto productoExistente : listaProductos) {
+
+            if (productoExistente.getCodigo().equals(producto.getCodigo())) {
+
+                productoExistente.setCantidadDisponible(
+                        productoExistente.getCantidadDisponible()
+                                + producto.getCantidadDisponible()
+                );
+
+                return true;
+            }
+        }
+
+        listaProductos.add(producto);
+        return true;
+    }
 
 }
