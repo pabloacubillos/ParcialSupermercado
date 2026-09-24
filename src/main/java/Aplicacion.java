@@ -15,8 +15,9 @@ do{
     System.out.println("====== MENU Supermercado======");
 
     System.out.println("1. Registrar Cliente");
-    System.out.println("2. Mostrar  Cliente");
-    System.out.println("3. Modificar Cliente");
+    System.out.println("2. Modificar Cliente");
+    System.out.println("3. Mostrar  Cliente");
+
 
     System.out.println("--------------------");
 
@@ -35,7 +36,7 @@ do{
     opcion = sc.nextInt();
     sc.nextLine();
 
-    switch (opcion){
+    switch (opcion) {
         case 1:
             //Registrar cliente
             System.out.println("Ingresa el nombre del cliente:");
@@ -51,17 +52,64 @@ do{
             System.out.println("Ingresa el correo electronico del cliente");
             String correo = sc.nextLine();
 
-            Cliente cliente = new Cliente(nombre,documento,telefono,correo);
-
+            Cliente cliente = new Cliente(nombre, documento, telefono, correo);
+            break;
         case 2:
 
             break;
 
 
+        case 3:
 
+        case 4:
+            // Registrar producto
+            System.out.println("--- Registrar Producto ---");
 
+            System.out.println("Nombre del producto: ");
+            String nombreProducto = sc.nextLine();
+
+            int opcionCategoria;
+            Categoria categoria = null;
+
+            do {
+                System.out.println(
+                        "Seleccione la categoría:\n" +
+                                "1. ASEO\n" +
+                                "2. BEBIDAS\n" +
+                                "3. ALIMENTOS\n" +
+                                "4. CUIDADO_PERSONAL"
+                );
+
+                opcionCategoria = sc.nextInt();
+                sc.nextLine();
+
+                switch (opcionCategoria) {
+                    case 1:
+                        categoria = Categoria.ASEO;
+                        break;
+
+                    case 2:
+                        categoria = Categoria.BEBIDAS;
+                        break;
+
+                    case 3:
+                        categoria = Categoria.ALIMENTOS;
+                        break;
+
+                    case 4:
+                        categoria = Categoria.CUIDADO_PERSONAL;
+                        break;
+
+                    default:
+                        System.out.println("Opción inválida.");
+                }
+
+            } while (opcionCategoria < 1 || opcionCategoria > 4);
+
+            System.out.println("Categoría seleccionada: " + categoria);
+
+            break;
     }
-
 
 
 } while (opcion != 0);
