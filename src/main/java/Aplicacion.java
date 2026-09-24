@@ -133,11 +133,47 @@ do{
         case 5:
             //Registrar Compra
             System.out.println("Ingresa el codigo de la compra:");
-            String codigo = sc.nextLine();
+            String codigoCompra = sc.nextLine();
 
-            LocalDate fecha = LocalDate.now();
+            LocalDate fechaCompra = LocalDate.now();
             System.out.println();
-            MetodoPago metodoPago;
+
+            int opcionMetodo;
+            MetodoPago metodoPago = null;
+            do {
+                System.out.println("Seleccione el metodo:\n" +
+                                "1. TARJETA\n" +
+                                "2. TRANSFERENCIA\n" +
+                                "3. EFECTIVO");
+
+                opcionMetodo = sc.nextInt();
+                sc.nextLine();
+
+                switch (opcionMetodo) {
+                    case 1:
+                        metodoPago = MetodoPago.TARJETA;
+                        break;
+
+                    case 2:
+                        metodoPago = MetodoPago.TRANSFERENCIA;
+                        break;
+
+                    case 3:
+                        metodoPago = MetodoPago.EFECTIVO;
+                        break;
+
+                    default:
+                        System.out.println("Opción inválida.");
+                }
+
+            } while (opcionMetodo < 1 || opcionMetodo > 3);
+
+            System.out.println("Metodo de pago seleccionado: " + metodoPago);
+
+            Compra compra = new Compra(codigoCompra,fechaCompra,metodoPago);
+            marketPlus.registrarCompra(compra);
+            break;
+
 
         case 0:
             System.out.println("Programa finalizado.....");
@@ -149,54 +185,7 @@ do{
 
 
 
-        case 4:
-            // Registrar producto
-            System.out.println("--- Registrar Producto ---");
 
-            System.out.println("Nombre del producto: ");
-            String nombreProducto = sc.nextLine();
-
-            int opcionCategoria;
-            Categoria categoria = null;
-
-            do {
-                System.out.println(
-                        "Seleccione la categoría:\n" +
-                                "1. ASEO\n" +
-                                "2. BEBIDAS\n" +
-                                "3. ALIMENTOS\n" +
-                                "4. CUIDADO_PERSONAL"
-                );
-
-                opcionCategoria = sc.nextInt();
-                sc.nextLine();
-
-                switch (opcionCategoria) {
-                    case 1:
-                        categoria = Categoria.ASEO;
-                        break;
-
-                    case 2:
-                        categoria = Categoria.BEBIDAS;
-                        break;
-
-                    case 3:
-                        categoria = Categoria.ALIMENTOS;
-                        break;
-
-                    case 4:
-                        categoria = Categoria.CUIDADO_PERSONAL;
-                        break;
-
-                    default:
-                        System.out.println("Opción inválida.");
-                }
-
-            } while (opcionCategoria < 1 || opcionCategoria > 4);
-
-            System.out.println("Categoría seleccionada: " + categoria);
-
-            break;
     }
 
 
