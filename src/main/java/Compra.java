@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Compra {
 
@@ -7,13 +9,16 @@ public class Compra {
     private String telefano;
     private String correo;
     private MetodoPago metodoPago;
+    private List<Producto> listaProductos;
 
-    public Compra(String codigo, Date fecha, String telefano, String correo, MetodoPago metodoPago) {
+
+    public Compra(String codigo, Date fecha, String telefano, String correo, MetodoPago metodoPago, List<Producto> listaProductos) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.telefano = telefano;
         this.correo = correo;
         this.metodoPago = metodoPago;
+        listaProductos = new ArrayList<>();
     }
 
     @Override
@@ -24,13 +29,13 @@ public class Compra {
                 ", telefano='" + telefano + '\'' +
                 ", correo='" + correo + '\'' +
                 ", metodoPago=" + metodoPago +
+                ", listaProductos=" + listaProductos +
                 '}';
     }
 
     public String getCodigo() {
         return codigo;
     }
-
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -38,7 +43,6 @@ public class Compra {
     public Date getFecha() {
         return fecha;
     }
-
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -46,7 +50,6 @@ public class Compra {
     public String getTelefano() {
         return telefano;
     }
-
     public void setTelefano(String telefano) {
         this.telefano = telefano;
     }
@@ -54,7 +57,6 @@ public class Compra {
     public String getCorreo() {
         return correo;
     }
-
     public void setCorreo(String correo) {
         this.correo = correo;
     }
@@ -62,8 +64,14 @@ public class Compra {
     public MetodoPago getMetodoPago() {
         return metodoPago;
     }
-
     public void setMetodoPago(MetodoPago metodoPago) {
         this.metodoPago = metodoPago;
+    }
+
+    public List<Producto> getListaProductos() {
+        return listaProductos;
+    }
+    public void setListaProductos(List<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
     }
 }
