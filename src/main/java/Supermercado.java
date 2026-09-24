@@ -151,4 +151,8 @@ private List<Cliente> listaClientes;
         return true;
     }
 
+    public void  mostrarProductos (){
+        for (Producto producto : listaProductos){}
+    }
+
 }

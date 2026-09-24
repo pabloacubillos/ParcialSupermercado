@@ -29,6 +29,8 @@ do{
     System.out.println("6. Reporte de Venta");
     System.out.println("7. Mostrar productos disponibles");
 
+
+
     System.out.println("--------------------");
     System.out.println("0. Salir");
 
@@ -206,7 +208,7 @@ do{
                     default:
                         System.out.println("Opción inválida.");
                 }
-}
+
 
             } while (opcionMetodo < 1 || opcionMetodo > 3);
 
@@ -215,6 +217,12 @@ do{
             Compra compra = new Compra(codigoCompra,fechaCompra,metodoPago);
             marketPlus.registrarCompra(compra);
             break;
+        case 7:
+            System.out.println("---Mostrar productos disponibles---");
+
+            marketPlus.mostrarProductos();
+            break;
+
 
 
         case 0:
