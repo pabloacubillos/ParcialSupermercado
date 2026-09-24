@@ -44,10 +44,6 @@ public class Aplicacion {
 
             switch (opcion) {
 
-                // =========================
-                // CLIENTES
-                // =========================
-
                 case 1:
                     //Registrar cliente
                     System.out.println("-----Registrar cliente-----");
@@ -111,6 +107,8 @@ public class Aplicacion {
                     Categoria categoria = null;
 
                     do {
+                        //Menu interactivo para selecionar categoria
+
                         System.out.println("\nSeleccione la categoría:");
                         System.out.println("1. ASEO");
                         System.out.println("2. BEBIDAS");
@@ -178,6 +176,8 @@ public class Aplicacion {
                     break;
 
                 case 7:
+
+                    // Ingresar producto
                     System.out.println("--- Ingresar Productos ---");
 
                     System.out.print("Ingrese el código del producto: ");
@@ -277,11 +277,13 @@ public class Aplicacion {
 
 
                 case 0:
+                    // Salir
                     System.out.println("Programa finalizado.....");
                     break;
 
                 default:
-                    System.out.println("Opción no válida.");
+                    // Error en rojo
+                    System.out.println( "\u001B[31m Opción no válida.\u001B[0m");
             }
 
         } while (opcion != 0);

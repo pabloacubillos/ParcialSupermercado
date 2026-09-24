@@ -187,6 +187,7 @@ private List<Cliente> listaClientes;
 
         return ingresado;
     }
+//Mostrar productos
 
     public void  mostrarProductos (){
         for (Producto producto : listaProductos){
@@ -194,7 +195,7 @@ private List<Cliente> listaClientes;
         }
     }
 
-    //conocer el valor total vendido en una fecha determinada
+    //Conocer el valor total vendido en una fecha determinada
     public String reportarVenta(LocalDate fecha){
 
 
