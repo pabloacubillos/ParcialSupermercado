@@ -205,6 +205,30 @@ private List<Cliente> listaClientes;
         }
     }
 
+    // Modificar producto
+
+    public boolean modificarProducto(String codigo, String nuevoNombre, double nuevoPrecio, int nuevaCantidad,
+                                     Categoria nuevaCategoria) {
+
+        boolean modificado = false;
+
+        for (Producto producto : listaProductos) {
+
+            if (producto.getCodigo().equals(codigo)) {
+
+                producto.setNombre(nuevoNombre);
+                producto.setPrecioUnitario(nuevoPrecio);
+                producto.setCantidadDisponible(nuevaCantidad);
+                producto.setCategoria(nuevaCategoria);
+
+                modificado = true;
+                break;
+            }
+        }
+
+        return modificado;
+    }
+
     //Conocer el valor total vendido en una fecha determinada
     public String reportarVenta(LocalDate fecha){
 

@@ -156,25 +156,73 @@ public class Aplicacion {
                     break;
 
                 case 6:
-                    // modificar producto
-                    System.out.println("Ingresa el codigo del producto que quieres modificar: ");
+                    // Modificar producto
+
+                    System.out.println("--- Modificar Producto ---");
+
+                    System.out.print("Ingresa el código del producto que quieres modificar: ");
                     String codigoActualizado = sc.nextLine();
 
-                    System.out.println("Nuevo nombre: ");
+                    System.out.print("Nuevo nombre: ");
                     String nombreActualizado = sc.nextLine();
 
-                    System.out.println("Nuevo precio: ");
+                    System.out.print("Nuevo precio: ");
                     double precioActualizado = sc.nextDouble();
 
-                    System.out.println("Nuevo cantidad disponible: ");
+                    System.out.print("Nueva cantidad disponible: ");
                     int cantidadActualizado = sc.nextInt();
 
-                    //Nota: falta categoria
-                    Producto productoModificado = new Producto(codigoActualizado, nombreActualizado,
-                            precioActualizado, cantidadActualizado, null);
+                    int opcionModificada;
+                    Categoria categoriaActualizada = null;
+
+                    do {
+                        System.out.println("\nSeleccione la nueva categoría:");
+                        System.out.println("1. ASEO");
+                        System.out.println("2. BEBIDAS");
+                        System.out.println("3. ALIMENTOS");
+                        System.out.println("4. CUIDADO_PERSONAL");
+
+                        opcionModificada = sc.nextInt();
+
+                        switch (opcionModificada) {
+                            case 1:
+                                categoriaActualizada = Categoria.ASEO;
+                                break;
+
+                            case 2:
+                                categoriaActualizada = Categoria.BEBIDAS;
+                                break;
+
+                            case 3:
+                                categoriaActualizada = Categoria.ALIMENTOS;
+                                break;
+
+                            case 4:
+                                categoriaActualizada = Categoria.CUIDADO_PERSONAL;
+                                break;
+
+                            default:
+                                System.out.println("Opción inválida.");
+                        }
+
+                    } while (categoriaActualizada == null);
+
+                    sc.nextLine();
+
+                    if (marketPlus.modificarProducto(
+                            codigoActualizado,
+                            nombreActualizado,
+                            precioActualizado,
+                            cantidadActualizado,
+                            categoriaActualizada)) {
+
+                        System.out.println("Producto modificado correctamente.");
+
+                    } else {
+                        System.out.println("No se encontró un producto con ese código.");
+                    }
 
                     break;
-
                 case 7:
 
                     // Ingresar producto
