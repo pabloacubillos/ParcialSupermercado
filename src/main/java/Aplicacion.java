@@ -165,9 +165,9 @@ public class Aplicacion {
                     MetodoPago metodoPago = null;
                     do {
                         System.out.println("Seleccione el metodo:\n" +
-                                        "1. TARJETA\n" +
-                                        "2. TRANSFERENCIA\n" +
-                                        "3. EFECTIVO");
+                                "1. TARJETA\n" +
+                                "2. TRANSFERENCIA\n" +
+                                "3. EFECTIVO");
 
                         opcionMetodo = sc.nextInt();
                         sc.nextLine();
