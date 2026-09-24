@@ -91,7 +91,7 @@ private List<Cliente> listaClientes;
     public Cliente encontrarCliente (String documento){
         Cliente clienteEncontrado = null;
         for (Cliente cliente : listaClientes){
-            if (cliente.getDocumento()==documento){
+            if (cliente.getDocumento().equals(documento)){
                 clienteEncontrado = cliente;
                 break;
             }

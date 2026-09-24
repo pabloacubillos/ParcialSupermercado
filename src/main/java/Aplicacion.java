@@ -27,6 +27,7 @@ public class Aplicacion {
 
             System.out.println("6. Reporte de Venta");
             System.out.println("7. Mostrar productos disponibles");
+            System.out.println("8. Modificar productos disponibles");
 
 
 
@@ -206,6 +207,30 @@ public class Aplicacion {
                     break;
                 case 7:
                     System.out.println("---Mostrar productos disponibles---");
+            Compra compra = new Compra(codigoCompra, fechaCompra, metodoPago);
+            marketPlus.registrarCompra(compra);
+            break;
+        case 7:
+            System.out.println("---Mostrar productos disponibles---");
+
+            marketPlus.mostrarProductos();
+            break;
+        case 8:
+            // modificar producto
+            System.out.println("Ingresa el codigo del producto que quieres modificar: ");
+            String codigoActualizar = sc.nextLine();
+
+            System.out.println("Nuevo nombre: ");
+            String nombreActualizar = sc.nextLine();
+
+            System.out.println("Nuevo precio: ");
+            double precioActualizar = sc.nextDouble();
+
+            System.out.println("Nuevo cantidad disponible: ");
+            int cantidadActualizar = sc.nextInt();
+
+            Producto productoModificado = new Producto( codigoActualizar, nombreActualizar,
+                    precioActualiza, cantidadActualizar);
 
                     marketPlus.mostrarProductos();
                     break;
@@ -218,10 +243,13 @@ public class Aplicacion {
 
                 default:
                     System.out.println("Opción no valida.....");
-
             }
-
         } while (opcion != 0);
+
+
+
+
+
 
         sc.close();
     }
