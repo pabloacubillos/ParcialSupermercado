@@ -55,6 +55,12 @@ do{
 
         case 2:
 
+
+        case 3:
+            //Mostrar cliente
+            marketPlus.mostrarClientes();
+            break;
+
     }
 
 

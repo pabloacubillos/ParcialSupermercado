@@ -82,6 +82,12 @@ private List<Cliente> listaClientes;
         return existe;
     }
 
+    public void mostrarClientes (){
+        for (Cliente cliente : listaClientes){
+            System.out.println(cliente.getNombre());
+        }
+    }
+
     @Override
     public String toString() {
         return "Supermercado{" +
