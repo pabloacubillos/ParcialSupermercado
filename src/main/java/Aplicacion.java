@@ -40,7 +40,7 @@ do{
     opcion = sc.nextInt();
     sc.nextLine();
 
-    switch (opcion){
+    switch (opcion) {
         case 1:
             //Registrar cliente
             System.out.println("-----Registrar cliente-----");
@@ -56,7 +56,7 @@ do{
             System.out.println("Ingresa el correo electronico del cliente");
             String correoCliente = sc.nextLine();
 
-            Cliente cliente = new Cliente(nombreCliente,documentoCliente,telefonoCliente,correoCliente);
+            Cliente cliente = new Cliente(nombreCliente, documentoCliente, telefonoCliente, correoCliente);
             marketPlus.registrarCliente(cliente);
             break;
 
@@ -83,8 +83,8 @@ do{
             System.out.println("Nuevo correo: ");
             String nuevoCorreo = sc.nextLine();
 
-            Cliente clienteModificado = new Cliente(nuevoNombre,documentoModificado, nuevoTelefono, nuevoCorreo);
-            marketPlus.modificarCliente(documentoModificado,clienteModificado);
+            Cliente clienteModificado = new Cliente(nuevoNombre, documentoModificado, nuevoTelefono, nuevoCorreo);
+            marketPlus.modificarCliente(documentoModificado, clienteModificado);
 
             break;
 
@@ -169,9 +169,9 @@ do{
             MetodoPago metodoPago = null;
             do {
                 System.out.println("Seleccione el metodo:\n" +
-                                "1. TARJETA\n" +
-                                "2. TRANSFERENCIA\n" +
-                                "3. EFECTIVO");
+                        "1. TARJETA\n" +
+                        "2. TRANSFERENCIA\n" +
+                        "3. EFECTIVO");
 
                 opcionMetodo = sc.nextInt();
                 sc.nextLine();
@@ -198,7 +198,7 @@ do{
 
             System.out.println("Metodo de pago seleccionado: " + metodoPago);
 
-            Compra compra = new Compra(codigoCompra,fechaCompra,metodoPago);
+            Compra compra = new Compra(codigoCompra, fechaCompra, metodoPago);
             marketPlus.registrarCompra(compra);
             break;
         case 7:
@@ -208,6 +208,21 @@ do{
             break;
         case 8:
             // modificar producto
+            System.out.println("Ingresa el codigo del producto que quieres modificar: ");
+            String codigoActualizar = sc.nextLine();
+
+            System.out.println("Nuevo nombre: ");
+            String nombreActualizar = sc.nextLine();
+
+            System.out.println("Nuevo precio: ");
+            double precioActualizar = sc.nextDouble();
+
+            System.out.println("Nuevo cantidad disponible: ");
+            int cantidadActualizar = sc.nextInt();
+
+            Producto productoModificado = new Producto( codigoActualizar, nombreActualizar,
+                    precioActualiza, cantidadActualizar);
+
 
 
 
