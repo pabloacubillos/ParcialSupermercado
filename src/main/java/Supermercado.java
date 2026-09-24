@@ -101,6 +101,16 @@ private List<Cliente> listaClientes;
         return clienteEncontrado;
     }
 
+    public Producto encontrarProducto (String codigo){
+        Producto productoEncontrado = null;
+        for (Producto producto : listaProductos){
+            if (producto.getCodigo().equals(codigo)){
+                productoEncontrado = producto;
+                break;
+            }
+        }
+        return productoEncontrado;
+    }
     // Registrar compra
     public boolean registrarCompra (Compra compra){
         boolean agregado = verificarCompra(compra.getCodigo());
