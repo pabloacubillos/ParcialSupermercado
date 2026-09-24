@@ -100,7 +100,6 @@ do{
 
 
 
-            MetodoPago metodoPago;
 
         case 0:
             System.out.println("Programa finalizado.....");
