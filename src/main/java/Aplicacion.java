@@ -7,44 +7,47 @@ import java.util.logging.SocketHandler;
 
 public class Aplicacion {
     public static void main (String[] args) {
-        Supermercado marketPlus = new Supermercado("Market Plus","Carrera 15 calle 13", "39028362");
+        Supermercado marketPlus = new Supermercado("Market Plus", "Carrera 15 calle 13", "39028362");
         // Menu interactivo
         Scanner sc = new Scanner(System.in);
         int opcion;
-        do{
-            System.out.println("====== MENU Supermercado======");
 
+        do {
+            System.out.println("\n====== MENU SUPERMERCADO ======");
+
+            // ===== CLIENTES =====
+            System.out.println("\n--- CLIENTES ---");
             System.out.println("1. Registrar Cliente");
-            System.out.println("2. Mostrar  Cliente");
+            System.out.println("2. Mostrar Clientes");
             System.out.println("3. Modificar Cliente");
 
-            System.out.println("--------------------");
-
-            //Registrar un producto nuevo
-
+            // ===== PRODUCTOS =====
+            System.out.println("\n--- PRODUCTOS ---");
             System.out.println("4. Registrar Producto");
-            System.out.println("5. Registrar Compra");
+            System.out.println("5. Mostrar Productos Disponibles");
+            System.out.println("6. Modificar Producto");
+            System.out.println("7. Ingresar Productos");
 
-            System.out.println("--------------------");
+            // ===== COMPRAS =====
+            System.out.println("\n--- COMPRAS ---");
+            System.out.println("8. Registrar Compra");
 
-            System.out.println("6. Reporte de Venta");
-            System.out.println("7. Mostrar productos disponibles");
-            System.out.println("8. Modificar productos disponibles");
+            // ===== REPORTES =====
+            System.out.println("\n--- REPORTES ---");
+            System.out.println("9. Reporte de Venta");
 
-            //Sumar al inventario
-            System.out.println("9. Ingresar productos");
+            System.out.println("\n0. Salir");
 
-
-
-            System.out.println("--------------------");
-            System.out.println("0. Salir");
-
-
-            System.out.print("Seleccione la opción: ");
+            System.out.print("\nSeleccione la opción: ");
             opcion = sc.nextInt();
             sc.nextLine();
 
-            switch (opcion){
+            switch (opcion) {
+
+                // =========================
+                // CLIENTES
+                // =========================
+
                 case 1:
                     //Registrar cliente
                     System.out.println("-----Registrar cliente-----");
@@ -60,15 +63,12 @@ public class Aplicacion {
                     System.out.println("Ingresa el correo electronico del cliente");
                     String correoCliente = sc.nextLine();
 
-                    Cliente cliente = new Cliente(nombreCliente,documentoCliente,telefonoCliente,correoCliente);
+                    Cliente cliente = new Cliente(nombreCliente, documentoCliente, telefonoCliente, correoCliente);
                     marketPlus.registrarCliente(cliente);
                     break;
-
                 case 2:
                     //Mostrar Cliente
-
                     marketPlus.mostrarClientes();
-
                     break;
 
                 case 3:
@@ -87,12 +87,10 @@ public class Aplicacion {
                     System.out.println("Nuevo correo: ");
                     String nuevoCorreo = sc.nextLine();
 
-                    Cliente clienteModificado = new Cliente(nuevoNombre,documentoModificado, nuevoTelefono, nuevoCorreo);
-                    marketPlus.modificarCliente(documentoModificado,clienteModificado);
+                    Cliente clienteModificado = new Cliente(nuevoNombre, documentoModificado, nuevoTelefono, nuevoCorreo);
+                    marketPlus.modificarCliente(documentoModificado, clienteModificado);
 
                     break;
-
-
                 case 4:
                     // Registrar producto
                     System.out.println("--- Registrar Producto ---");
@@ -154,6 +152,49 @@ public class Aplicacion {
                     break;
 
                 case 5:
+                    // Mostrar productos
+                    System.out.println("--- Productos disponibles ---");
+                    marketPlus.mostrarProductos();
+                    break;
+
+                case 6:
+                    // modificar producto
+                    System.out.println("Ingresa el codigo del producto que quieres modificar: ");
+                    String codigoActualizado = sc.nextLine();
+
+                    System.out.println("Nuevo nombre: ");
+                    String nombreActualizado = sc.nextLine();
+
+                    System.out.println("Nuevo precio: ");
+                    double precioActualizado = sc.nextDouble();
+
+                    System.out.println("Nuevo cantidad disponible: ");
+                    int cantidadActualizado = sc.nextInt();
+
+                    //Nota: falta categoria
+                    Producto productoModificado = new Producto(codigoActualizado, nombreActualizado,
+                            precioActualizado, cantidadActualizado, null);
+
+                    break;
+
+                case 7:
+                    System.out.println("--- Ingresar Productos ---");
+
+                    System.out.print("Ingrese el código del producto: ");
+                    String codigoProducto = sc.nextLine();
+
+                    System.out.print("Ingrese la cantidad de productos que llegaron: ");
+                    int cantidadIngresada = sc.nextInt();
+                    sc.nextLine();
+
+                    if (marketPlus.ingresarProducto(codigoProducto, cantidadIngresada)) {
+                        System.out.println("Productos ingresados correctamente.");
+                    } else {
+                        System.out.println("No se encontró un producto con ese código.");
+                    }
+
+                    break;
+                case 8:
                     //Registrar Compra
                     System.out.println("Ingresa el codigo de la compra:");
                     String codigoCompra = sc.nextLine();
@@ -199,12 +240,12 @@ public class Aplicacion {
 
                     Cliente clienteCompra = marketPlus.encontrarCliente(documentoCliente);
 
-                    Compra compra = new Compra(codigoCompra,fechaCompra,metodoPago,clienteCompra);
+                    Compra compra = new Compra(codigoCompra, fechaCompra, metodoPago, clienteCompra);
                     marketPlus.registrarCompra(compra);
                     break;
 
-                case 6:
-
+                case 9:
+                    // Reporte de venta
                     System.out.println("A continuacion, ingresa la informacion correspondiente a la fecha del reporte:");
 
                     System.out.println("-Año: ");
@@ -216,61 +257,22 @@ public class Aplicacion {
                     System.out.println("-Dia: ");
                     int dia = sc.nextInt();
 
-                    LocalDate fecha = LocalDate.of(anio,mes,dia);
+                    LocalDate fecha = LocalDate.of(anio, mes, dia);
 
                     marketPlus.reportarVenta(fecha);
-
-                case 7:
-                    System.out.println("---Mostrar productos disponibles---");
-
-                    marketPlus.mostrarProductos();
                     break;
-                case 8:
-                    // modificar producto
-                    System.out.println("Ingresa el codigo del producto que quieres modificar: ");
-                    String codigoActualizado = sc.nextLine();
 
-                    System.out.println("Nuevo nombre: ");
-                    String nombreActualizado = sc.nextLine();
-
-                    System.out.println("Nuevo precio: ");
-                    double precioActualizado = sc.nextDouble();
-
-                    System.out.println("Nuevo cantidad disponible: ");
-                    int cantidadActualizado = sc.nextInt();
-
-                    //Nota: falta categoria
-                    Producto productoModificado = new Producto(codigoActualizado, nombreActualizado,
-                            precioActualizado, cantidadActualizado, null);
-
-                     break;
-
-                case 9:
-                    System.out.println("--- Ingresar Productos ---");
-
-                    System.out.print("Ingrese el código del producto: ");
-                    String codigoProducto = sc.nextLine();
-
-                    System.out.print("Ingrese la cantidad de productos que llegaron: ");
-                    int cantidadIngresada = sc.nextInt();
-                    sc.nextLine();
-
-                    if (marketPlus.ingresarProducto(codigoProducto, cantidadIngresada)) {
-                        System.out.println("Productos ingresados correctamente.");
-                    } else {
-                        System.out.println("No se encontró un producto con ese código.");
-                    }
-
-                    break;
 
                 case 0:
                     System.out.println("Programa finalizado.....");
                     break;
 
                 default:
-                    System.out.println("Opción no valida.....");
+                    System.out.println("Opción no válida.");
             }
+
         } while (opcion != 0);
+
         sc.close();
     }
 
