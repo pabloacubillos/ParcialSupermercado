@@ -20,6 +20,8 @@ public class Aplicacion {
 
             System.out.println("--------------------");
 
+            //Registrar un producto nuevo
+
             System.out.println("4. Registrar Producto");
             System.out.println("5. Registrar Compra");
 
@@ -28,6 +30,9 @@ public class Aplicacion {
             System.out.println("6. Reporte de Venta");
             System.out.println("7. Mostrar productos disponibles");
             System.out.println("8. Modificar productos disponibles");
+
+            //Sumar al inventario
+            System.out.println("9. Ingresar productos");
 
 
 
@@ -92,67 +97,59 @@ public class Aplicacion {
                     // Registrar producto
                     System.out.println("--- Registrar Producto ---");
 
-                    System.out.println("Código del producto: ");
-                    String codigoProducto = sc.nextLine();
+                    System.out.print("Código del producto: ");
+                    String codigo = sc.nextLine();
 
-                    System.out.println("Nombre del producto: ");
+                    System.out.print("Nombre del producto: ");
                     String nombreProducto = sc.nextLine();
 
-                    System.out.println("Precio del producto: ");
-                    double precioProducto = sc.nextDouble();
+                    System.out.print("Precio unitario: ");
+                    double precio = sc.nextDouble();
 
-                    System.out.println("Cantidad disponible: ");
-                    int cantidadProducto = sc.nextInt();
+                    System.out.print("Cantidad disponible: ");
+                    int cantidad = sc.nextInt();
 
                     int opcionCategoria;
                     Categoria categoria = null;
 
                     do {
-                        System.out.println(
-                                "Seleccione la categoría:\n" +
-                                        "1. ASEO\n" +
-                                        "2. BEBIDAS\n" +
-                                        "3. ALIMENTOS\n" +
-                                        "4. CUIDADO_PERSONAL"
-                        );
+                        System.out.println("\nSeleccione la categoría:");
+                        System.out.println("1. ASEO");
+                        System.out.println("2. BEBIDAS");
+                        System.out.println("3. ALIMENTOS");
+                        System.out.println("4. CUIDADO_PERSONAL");
 
                         opcionCategoria = sc.nextInt();
-                        sc.nextLine();
 
                         switch (opcionCategoria) {
                             case 1:
                                 categoria = Categoria.ASEO;
                                 break;
-
                             case 2:
                                 categoria = Categoria.BEBIDAS;
                                 break;
-
                             case 3:
                                 categoria = Categoria.ALIMENTOS;
                                 break;
-
                             case 4:
                                 categoria = Categoria.CUIDADO_PERSONAL;
                                 break;
-
                             default:
-                                System.out.println("Opción inválida.");
+                                System.out.println("Categoría inválida.");
                         }
 
-                    } while (opcionCategoria < 1 || opcionCategoria > 4);
+                    } while (categoria == null);
 
-                    Producto producto = new Producto(
-                            codigoProducto,
-                            nombreProducto,
-                            precioProducto,
-                            cantidadProducto,
-                            categoria
-                    );
+                    sc.nextLine();
 
-                    marketPlus.registrarProducto(producto);
+                    Producto producto = new Producto(codigo, nombreProducto,
+                            precio, cantidad, categoria);
 
-                    System.out.println("Producto registrado correctamente.");
+                    if (marketPlus.registrarProducto(producto)) {
+                        System.out.println("Producto registrado correctamente.");
+                    } else {
+                        System.out.println("Ya existe un producto con ese código.");
+                    }
 
                     break;
 
@@ -228,7 +225,25 @@ public class Aplicacion {
                     Producto productoModificado = new Producto(codigoActualizado, nombreActualizado,
                             precioActualizado, cantidadActualizado, null);
 
+                     break;
 
+                case 9:
+                    System.out.println("--- Ingresar Productos ---");
+
+                    System.out.print("Ingrese el código del producto: ");
+                    String codigoProducto = sc.nextLine();
+
+                    System.out.print("Ingrese la cantidad de productos que llegaron: ");
+                    int cantidadIngresada = sc.nextInt();
+                    sc.nextLine();
+
+                    if (marketPlus.ingresarProducto(codigoProducto, cantidadIngresada)) {
+                        System.out.println("Productos ingresados correctamente.");
+                    } else {
+                        System.out.println("No se encontró un producto con ese código.");
+                    }
+
+                    break;
 
                 case 0:
                     System.out.println("Programa finalizado.....");
