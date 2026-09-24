@@ -53,8 +53,15 @@ do{
 
             Cliente cliente = new Cliente(nombre,documento,telefono,correo);
 
+            break;
+
 
         case 2:
+
+            break;
+
+
+
 
     }
 
