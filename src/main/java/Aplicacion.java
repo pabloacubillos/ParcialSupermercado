@@ -52,9 +52,10 @@ do{
             String correo = sc.nextLine();
 
             Cliente cliente = new Cliente(nombre,documento,telefono,correo);
+            break;
 
         case 2:
-
+        break;
 
         case 3:
             //Mostrar cliente
