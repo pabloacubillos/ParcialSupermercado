@@ -195,7 +195,7 @@ private List<Cliente> listaClientes;
     }
 
     //conocer el valor total vendido en una fecha determinada
-    public String reportarVenta(List<Compra> listaCompras, LocalDate fecha){
+    public String reportarVenta(LocalDate fecha){
 
 
         int valorTotal = 0;
@@ -206,7 +206,7 @@ private List<Cliente> listaClientes;
             }
         }
 
-        return null;
+        return "El valor total adquirido la fecha " + fecha + "fue: " + valorTotal;
     }
 
 }
