@@ -145,23 +145,47 @@ private List<Cliente> listaClientes;
         }
         return estaModificado;
     }
+    //Registrar producto nuevo
     public boolean registrarProducto(Producto producto) {
+        boolean agregado = false;
 
-        for (Producto productoExistente : listaProductos) {
+        if (!verificarProducto(producto.getCodigo())) {
+            listaProductos.add(producto);
+            agregado = true;
+        }
 
-            if (productoExistente.getCodigo().equals(producto.getCodigo())) {
+        return agregado;
+    }
+//Verificar si el producto es existente
+    public boolean verificarProducto(String codigo) {
+        boolean existe = false;
 
-                productoExistente.setCantidadDisponible(
-                        productoExistente.getCantidadDisponible()
-                                + producto.getCantidadDisponible()
-                );
-
-                return true;
+        for (Producto producto : listaProductos) {
+            if (producto.getCodigo().equals(codigo)) {
+                existe = true;
+                break;
             }
         }
 
-        listaProductos.add(producto);
-        return true;
+        return existe;
+    }
+
+    //Ingresar / Aumentar productos en el almacen
+    public boolean ingresarProducto(String codigo, int cantidad) {
+        boolean ingresado = false;
+
+        for (Producto producto : listaProductos) {
+            if (producto.getCodigo().equals(codigo)) {
+                producto.setCantidadDisponible(
+                        producto.getCantidadDisponible() + cantidad
+                );
+
+                ingresado = true;
+                break;
+            }
+        }
+
+        return ingresado;
     }
 
     public void  mostrarProductos (){
@@ -183,6 +207,10 @@ private List<Cliente> listaClientes;
         }
 
         return null;
+    public void mostrarProductos() {
+        for (Producto producto : listaProductos) {
+            System.out.println(producto);
+        }
     }
 
 }
