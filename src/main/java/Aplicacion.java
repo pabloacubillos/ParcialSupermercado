@@ -54,11 +54,11 @@ do{
             String correoCliente = sc.nextLine();
 
             Cliente cliente = new Cliente(nombreCliente,documentoCliente,telefonoCliente,correoCliente);
+            marketPlus.registrarCliente(cliente);
             break;
 
         case 2:
             //Mostrar Cliente
-
 
             marketPlus.mostrarClientes();
 
