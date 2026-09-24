@@ -57,8 +57,15 @@ do{
             break;
 
         case 2:
-            //MODIFICAR CLIENTE
+            //Mostrar Cliente
 
+
+            marketPlus.mostrarClientes();
+
+            break;
+
+        case 3:
+            //Modificar cliente
             System.out.println("-----Modificar cliente-----");
 
             System.out.println("Documento cliente: ");
@@ -74,13 +81,6 @@ do{
             String nuevoCorreo = sc.nextLine();
 
             Cliente clienteModificado = new Cliente(nuevoNombre,documentoModificar, nuevoTelefono, nuevoCorreo);
-
-
-            break;
-
-        case 3:
-            //Mostrar clientes
-            marketPlus.mostrarClientes();
             break;
 
         case 4:
