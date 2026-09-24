@@ -87,26 +87,8 @@ do{
 
             break;
 
-        case 3:
-            //Mostrar clientes
-            marketPlus.mostrarClientes();
-            break;
 
 
-        case 5:
-            //Registrar Compra
-            System.out.println("Ingresa el codigo de la compra:");
-            String codigo = sc.nextLine();
-
-
-
-
-        case 0:
-            System.out.println("Programa finalizado.....");
-            break;
-
-        default:
-            System.out.println("Opción no valida.....");
 
 
 
