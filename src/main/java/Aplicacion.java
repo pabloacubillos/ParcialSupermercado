@@ -244,16 +244,27 @@ public class Aplicacion {
 
                     System.out.println("Ingresa la cantidad de productos que comprara: ");
 
-                    int cantidadProducto = sc.nextInt();
+                    int cantidadProductos = sc.nextInt();
                     sc.nextLine();
 
-                    System.out.println("Agrega el codigo del producto que comprara: ");
-                    codigoProducto = sc.nextLine();
+                    for (int i = 0; i < cantidadProductos; i++) {
+                        System.out.println("Agrega el codigo del producto que comprara: ");
+                        codigoProducto = sc.nextLine();
 
+                        Producto productoComprado = marketPlus.encontrarProducto(codigoProducto);
 
-                    Producto productoCompra = null;
+                        System.out.println("Ingresa la cantidad de " + productoComprado.getNombre() + "que comprara: ");
+                        int cantidadProducto = sc.nextInt();
+                        sc.nextLine();
 
-                    boolean seAgregoProducto = compra.agregarProducto(productoCompra,cantidadProducto);
+                        boolean seAgregoProducto = compra.agregarProducto(productoComprado, cantidadProducto);
+
+                        if (seAgregoProducto) {
+                            System.out.println("Se agrego el producto correctamente");
+                        } else {
+                            System.out.println("No fue posible agregar el producto");
+                        }
+                    }
                     marketPlus.registrarCompra(compra);
                     break;
 
