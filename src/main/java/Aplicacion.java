@@ -58,7 +58,7 @@ do{
             break;
 
         case 2:
-        break;
+
             System.out.println("-----Modificar cliente-----");
 
             System.out.println("Documento cliente: ");
@@ -93,8 +93,19 @@ do{
 
             MetodoPago metodoPago;
 
+        case 0:
+            System.out.println("Programa finalizado.....");
+            break;
+
+        default:
+            System.out.println("Opción no valida.....");
+
 
     }
+
+
+
+
 
 
 
