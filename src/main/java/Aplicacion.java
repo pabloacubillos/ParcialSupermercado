@@ -1,5 +1,6 @@
 import java.sql.SQLOutput;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.SocketHandler;
 
@@ -35,32 +36,44 @@ do{
     opcion = sc.nextInt();
     sc.nextLine();
 
+
+
     switch (opcion){
         case 1:
             //Registrar cliente
             System.out.println("Ingresa el nombre del cliente:");
-            String nombre = sc.nextLine();
+            String nombreCliente = sc.nextLine();
 
             System.out.println("Ingresa el documento de identidad del cliente:");
-            String documento = sc.nextLine();
+            String documentoCliente = sc.nextLine();
 
             System.out.println("Ingresa el telefono del cliente: ");
-            int telefono = sc.nextInt();
+            String telefonoCliente = sc.nextLine();
 
-            sc.nextLine();
             System.out.println("Ingresa el correo electronico del cliente");
-            String correo = sc.nextLine();
+            String correoCliente = sc.nextLine();
 
-            Cliente cliente = new Cliente(nombre,documento,telefono,correo);
+            Cliente cliente = new Cliente(nombreCliente,documentoCliente,telefonoCliente,correoCliente);
             break;
 
         case 2:
         break;
 
         case 3:
-            //Mostrar cliente
+            //Mostrar clientes
             marketPlus.mostrarClientes();
             break;
+
+
+        case 5:
+            //Registrar Compra
+            System.out.println("Ingresa el codigo de la compra:");
+            String codigo = sc.nextLine();
+
+
+
+            MetodoPago metodoPago;
+
 
     }
 

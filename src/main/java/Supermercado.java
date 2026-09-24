@@ -88,6 +88,24 @@ private List<Cliente> listaClientes;
         }
     }
 
+    // Registrar compra
+    public boolean registrarCompra (Compra compra){
+        boolean agregado = verificarCompra(compra.getCodigo());
+        if (!agregado){
+            listaCompras.add(compra);
+            agregado = true;
+        }
+        return agregado;
+    }
+
+    public boolean verificarCompra (String codigo){
+        boolean existe = false;
+        if (listaClientes.contains(codigo)){
+            existe = true;
+        }
+        return existe;
+    }
+
     @Override
     public String toString() {
         return "Supermercado{" +

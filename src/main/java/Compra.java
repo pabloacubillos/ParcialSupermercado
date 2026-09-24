@@ -6,17 +6,13 @@ public class Compra {
 
     private String codigo;
     private Date fecha;
-    private String telefono;
-    private String correo;
     private MetodoPago metodoPago;
     private List<Producto> listaProductos;
 
 
-    public Compra(String codigo, Date fecha, String telefono, String correo, MetodoPago metodoPago) {
+    public Compra(String codigo, Date fecha, MetodoPago metodoPago) {
         this.codigo = codigo;
         this.fecha = fecha;
-        this.telefono = telefono;
-        this.correo = correo;
         this.metodoPago = metodoPago;
         listaProductos = new ArrayList<>();
     }
@@ -26,8 +22,6 @@ public class Compra {
         return "Compra{" +
                 "codigo='" + codigo + '\'' +
                 ", fecha=" + fecha +
-                ", telefano='" + telefono + '\'' +
-                ", correo='" + correo + '\'' +
                 ", metodoPago=" + metodoPago +
                 ", listaProductos=" + listaProductos +
                 '}';
@@ -45,20 +39,6 @@ public class Compra {
     }
     public void setFecha(Date fecha) {
         this.fecha = fecha;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-    public void setCorreo(String correo) {
-        this.correo = correo;
     }
 
     public MetodoPago getMetodoPago() {
