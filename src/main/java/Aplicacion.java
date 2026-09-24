@@ -57,11 +57,11 @@ do{
             String correoCliente = sc.nextLine();
 
             Cliente cliente = new Cliente(nombreCliente,documentoCliente,telefonoCliente,correoCliente);
+            marketPlus.registrarCliente(cliente);
             break;
 
         case 2:
             //Mostrar Cliente
-
 
             marketPlus.mostrarClientes();
 
@@ -72,7 +72,7 @@ do{
             System.out.println("-----Modificar cliente-----");
 
             System.out.println("Documento cliente: ");
-            String documentoModificar = sc.nextLine();
+            String documentoModificado = sc.nextLine();
 
             System.out.println("Nuevo nombre cliente: ");
             String nuevoNombre = sc.nextLine();
@@ -83,35 +83,10 @@ do{
             System.out.println("Nuevo correo: ");
             String nuevoCorreo = sc.nextLine();
 
-            Cliente clienteModificado = new Cliente(nuevoNombre,documentoModificar, nuevoTelefono, nuevoCorreo);
-
+            Cliente clienteModificado = new Cliente(nuevoNombre,documentoModificado, nuevoTelefono, nuevoCorreo);
+            marketPlus.modificarCliente(documentoModificado,clienteModificado);
 
             break;
-
-        case 3:
-            //Mostrar clientes
-            marketPlus.mostrarClientes();
-            break;
-
-
-        case 5:
-            //Registrar Compra
-            System.out.println("Ingresa el codigo de la compra:");
-            String codigo = sc.nextLine();
-
-
-
-            MetodoPago metodoPago;
-
-        case 0:
-            System.out.println("Programa finalizado.....");
-            break;
-
-        default:
-            System.out.println("Opción no valida.....");
-
-
-
 
 
         case 4:
