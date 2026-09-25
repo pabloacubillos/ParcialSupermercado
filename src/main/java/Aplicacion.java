@@ -233,7 +233,6 @@ public class Aplicacion {
 
                     System.out.print("Ingrese la cantidad de productos que llegaron: ");
                     int cantidadIngresada = sc.nextInt();
-                    sc.nextLine();
 
                     if (marketPlus.ingresarProducto(codigoProducto, cantidadIngresada)) {
                         System.out.println("Productos ingresados correctamente.");
@@ -247,7 +246,7 @@ public class Aplicacion {
                     System.out.println("Ingresa el codigo de la compra:");
                     String codigoCompra = sc.nextLine();
 
-                    LocalDate fechaCompra = LocalDate.now();
+                    LocalDate fechaCompra = LocalDate.of(2026,9,24);
                     System.out.println();
 
                     int opcionMetodo;
@@ -329,9 +328,10 @@ public class Aplicacion {
                     System.out.println("-Dia: ");
                     int dia = sc.nextInt();
 
-                    LocalDate fecha = LocalDate.of(anio, mes, dia);
+                    LocalDate fecha = LocalDate.now();
 
-                    marketPlus.reportarVenta(fecha);
+                    String reporte = marketPlus.reportarVenta(fecha);
+                    System.out.println(reporte);
                     break;
 
 

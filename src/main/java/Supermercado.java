@@ -233,11 +233,11 @@ private List<Cliente> listaClientes;
     public String reportarVenta(LocalDate fecha){
 
 
-        int valorTotal = 0;
+        double valorTotal = 0;
 
         for (Compra compra : listaCompras){
-            if (compra.getFecha() == fecha){
-                valorTotal++;
+            if (compra.getFecha().equals(fecha)){
+                valorTotal+= compra.getValorTotal();
             }
         }
 
